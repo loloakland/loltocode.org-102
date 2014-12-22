@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Click Counter</title>
+</head>
+<body>
+  <h1>Click Counter</h1>
+  <p><button>Click Me!</button></p>
+  <p>The button has been clicked <span>0</span> times.</p>
+  <script>
+    document.body.children[1].children[0].onclick = function() {
+      var counterSpan = document.body.children[2].children[0];
+      counterSpan.innerText = parseInt(counterSpan.innerText) + 1;
+    };
+  </script>
+</body>
+</html>

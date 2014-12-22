@@ -23,7 +23,7 @@
       <section>
         <section data-markdown>
           <script type="text/template">
-            # Introduction
+            ## Introduction
 
             This course introduces the participant to web front-end programming using client-side JavaScript and D3.js.
 
@@ -32,7 +32,7 @@
         </section>
         <section data-markdown>
           <script type="text/template">
-            # Topics
+            ## Topics
 
             * Document Object Model
             * DOM Manipulation with JavaScript
@@ -43,7 +43,7 @@
       <section>
         <section data-markdown>
           <script type="text/template">
-            # Review - HTML
+            ## Review - HTML
 
             * Create a basic HTML page
             * Discuss tree nature of tags
@@ -51,7 +51,9 @@
         </section>
         <section data-markdown>
           <script type="text/template">
-            # HTML Exercise
+            ## Exercise 1: HTML
+
+            ### Hello World!
 
             1. Create a directory for your project
 
@@ -69,7 +71,8 @@
                       <title>Hello World!</title>
                     </head>
                     <body>
-                      <h1>Hello World!</h1>
+                      <h1>Hello World! Heading</h1>
+                      <p>This is a Hello World! paragraph.</p>
                     </body>
                     </html>
 
@@ -78,7 +81,7 @@
         </section>
         <section data-markdown>
           <script type="text/template">
-            # HTML is a Tree
+            ## HTML is a Tree
 
                 <!doctype html>
                 <html lang="en">
@@ -86,7 +89,8 @@
                   <title>Hello World!</title>
                 </head>
                 <body>
-                  <h1>Hello World!</h1>
+                  <h1>Hello World! Heading</h1>
+                  <p>This is a Hello World! paragraph.</p>
                 </body>
                 </html>
 
@@ -97,11 +101,12 @@
                 | +-title
                 +-body
                   +-h1
+                  +-p
           </script>
         </section>
         <section data-markdown>
           <script type="text/template">
-            # Tree Terminology
+            ## Tree Terminology
 
             <table>
               <tr>
@@ -112,19 +117,109 @@
   | +-title
   +-body
     +-h1
+    +-p
                   </code></pre>
                 </td>
                 <td>
                   <ul>
-                    <li>The root of the tree is the `<html>` tag</li>
-                    <li>The `<head>` and `<body>` tags __children__ of the `<html>` tag; the `<html>` tag is the __parent__</li>
-                    <li>The `<head>` and `<body>` tags are __siblings__, with `<head>` coming first</li>
-                    <li>The `<title>` tag is a __child__ of the `<head>` tag, which makes it a __descendant__ of the `<html>` tag; `<html>` is the __ancestor__</li>
-                    <li>`<title>` and `<h1>` have no children; they are __leaves__</li>
+                    <li>The _root_ of the tree is the `<html>` tag</li>
+                    <li>The `<head>` and `<body>` tags _children_ of the `<html>` tag</li>
+                    <li>The `<html>` tag is the _parent_</li>
+                    <li>The `<head>` and `<body>` tags are _siblings_, with `<head>` coming first</li>
+                    <li>The `<title>` tag is a _descendant_ of the `<html>` tag</li>
+                    <li>The `<html>` tag is the _ancestor_ of the `<title>` tag</li>
+                    <li>`<title>`, `<h1>`, and `<p>` have no children; they are _leaves_</li>
                   </ul>
                 </td>
               </tr>
             </table>
+          </script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Document Object Model (DOM)
+
+            > The Document Object Model is a platform- and language-neutral
+            > interface that will allow programs and scripts to dynamically
+            > access and update the content, structure and style of documents.
+            > The document can be further processed and the results of that
+            > processing can be incorporated back into the presented page.
+            >
+            > &mdash; <cite>[World Wide Web Consortium (W3C)][1]</cite>
+
+            [1]:http://www.w3.org/DOM/#what
+          </script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Creating and Updating the DOM
+
+            * HTML can be used to create a DOM
+            * The browser _renders_ that DOM, giving it a visual display
+            * JavaScript can be used to _dynamically change_ the DOM
+              in response to actions performed by the user (and other things!)
+            * The browser re-renders the DOM with the changes, updating
+              the visual display
+          </script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Viewing the DOM
+
+            Most modern browsers have a way to view the DOM.
+
+            The specific instructions depend on the browser.
+
+            View the _Hello World!_ page. What does the DOM look like?
+          </script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Exercise 2 - JavaScript
+
+            ### Click Counter
+
+            1. Replace the index.html page with the following:
+
+                    <!doctype html>
+                    <html lang="en">
+                    <head>
+                      <title>Click Counter</title>
+                    </head>
+                    <body>
+                      <h1>Click Counter</h1>
+                      <p><button>Click Me!</button></p>
+                      <p>The button has been clicked <span>0</span> times.</p>
+                    </body>
+                    </html>
+
+            2. View the page in the browser. Click the button. What happens?
+          </script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Exercise 2: JavaScript (cont'd)
+
+            ### Click Counter
+
+            <ol start="3">
+              <li>Add the following as the last child of the `<body>` tag:
+
+              <pre><code>
+              &lt;script&gt;
+                document.body.children[1].children[0].onclick = function() {
+                  var counterSpan = document.body.children[2].children[0];
+                  counterSpan.innerText = parseInt(counterSpan.innerText) + 1;
+                };
+              &lt;/script&gt;
+              </code></pre>
+
+              </li>
+              <li>View the page in the browser. Click the button. What happens?</li>
+              <li>Refresh the page in the browser. What happens?</li>
+            </ol>
           </script>
         </section>
       </section>
