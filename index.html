@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>LOL to Code - 101</title>
+  <title>LOL to Code - 102</title>
   <link rel="stylesheet" href="css/reveal.min.css">
   <link rel="stylesheet" href="css/theme/default.css" id="theme">
   <!--Add support for earlier versions of Internet Explorer -->
@@ -15,9 +15,9 @@
     <div class="slides">
       <section data-markdown>
         <script type="text/template">
-          # LOL to Code - 101
+          # LOL to Code - 102
           ## Web Front-End Programming
-          ### HTML / CSS / Web Front-End Frameworks
+          ### Client-Side JavaScript / D3.js
         </script>
       </section>
       <section>
@@ -25,19 +25,106 @@
           <script type="text/template">
             # Introduction
 
-            This course introduces the participant to web front-end programming using HTML and CSS.
+            This course introduces the participant to web front-end programming using client-side JavaScript and D3.js.
 
-            In this course, the participant will create an About Me website.
+            In this course, the participant will create a data visualization page.
           </script>
         </section>
         <section data-markdown>
           <script type="text/template">
             # Topics
 
-            * Basic HTML markup
-            * Loading HTML files in the browser
-            * Including CSS
-            * Using &lt;insert&gt; framework
+            * Document Object Model
+            * DOM Manipulation with JavaScript
+            * Drawing with D3.js
+          </script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            # Review - HTML
+
+            * Create a basic HTML page
+            * Discuss tree nature of tags
+          </script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            # HTML Exercise
+
+            1. Create a directory for your project
+
+                    $ mkdir loltocode.org-102/
+
+            2. Create the top-level HTML page
+
+                    $ touch index.html
+
+            3. Edit the HTML page
+
+                    <!doctype html>
+                    <html lang="en">
+                    <head>
+                      <title>Hello World!</title>
+                    </head>
+                    <body>
+                      <h1>Hello World!</h1>
+                    </body>
+                    </html>
+
+            4. View the HTML page in the browser
+          </script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            # HTML is a Tree
+
+                <!doctype html>
+                <html lang="en">
+                <head>
+                  <title>Hello World!</title>
+                </head>
+                <body>
+                  <h1>Hello World!</h1>
+                </body>
+                </html>
+
+            In the example above, the structure of the page is a tree like this:
+
+                html
+                +-head
+                | +-title
+                +-body
+                  +-h1
+          </script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            # Tree Terminology
+
+            <table>
+              <tr>
+                <td style="vertical-align: top; width: 25%;">
+                  <pre><code style="font-size: 150%;">
+  html
+  +-head
+  | +-title
+  +-body
+    +-h1
+                  </code></pre>
+                </td>
+                <td>
+                  <ul>
+                    <li>The root of the tree is the `<html>` tag</li>
+                    <li>The `<head>` and `<body>` tags __children__ of the `<html>` tag; the `<html>` tag is the __parent__</li>
+                    <li>The `<head>` and `<body>` tags are __siblings__, with `<head>` coming first</li>
+                    <li>The `<title>` tag is a __child__ of the `<head>` tag, which makes it a __descendant__ of the `<html>` tag; `<html>` is the __ancestor__</li>
+                    <li>`<title>` and `<h1>` have no children; they are __leaves__</li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
           </script>
         </section>
       </section>
@@ -47,6 +134,7 @@
   <script src="js/reveal.min.js"></script>
   <script>
     Reveal.initialize({
+      history: true,
       dependencies: [
         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
